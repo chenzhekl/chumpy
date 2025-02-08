@@ -81,8 +81,8 @@ for rtn in not_yet_implemented:
     exec('def %s(*args, **kwargs) : raise NotImplementedError' % (rtn))
 
 def asarray(a, dtype=None, order=None):
-    assert(dtype is None or dtype is np.float64)
-    assert(order is 'C' or order is None)
+    assert(dtype is None or dtype == np.float64)
+    assert(order == 'C' or order is None)
     if hasattr(a, 'dterms'):
         return a
     return Ch(np.asarray(a, dtype, order))
